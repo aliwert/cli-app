@@ -20,12 +20,12 @@ go mod tidy
 go run ./
 ```
 
-Commands
--Add <description>: Add a new todo item with the given description.
--Edit <index> <new-description>: Edit an existing todo item by index.
--Delete <index>: Delete a todo item by index.
--Toggle <index>: Toggle the completion status of a todo item by index.
--List: List all todo items.
+## Commands
+- Add <description>: Add a new todo item with the given description.
+- Edit <index> <new-description>: Edit an existing todo item by index.
+- Delete <index>: Delete a todo item by index.
+- Toggle <index>: Toggle the completion status of a todo item by index.
+- List: List all todo items.
 
 ## Examples
 
