@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/fatih/color"
+)
 
 const logo = `
  ____  _____  ____   _____     ___  __    ____      __    ____  ____ 
@@ -10,6 +14,7 @@ const logo = `
 `
 
 func PrintLogo() {
-	fmt.Print(logo + "\n")
-	fmt.Printf("%40s%s\n", "", "A simple CLI todo list application")
+	green := color.New(color.FgGreen).SprintFunc()
+	fmt.Print(green(logo + "\n"))
+	fmt.Printf("%40s%s\n", "", green("A simple CLI todo list application"))
 }

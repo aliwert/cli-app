@@ -7,6 +7,7 @@ import (
 func main() {
 
 	PrintLogo()
+
 	if len(os.Args) < 2 {
 		PrintUsage()
 		os.Exit(1)
