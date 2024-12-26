@@ -2,10 +2,11 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/fatih/color"
 )
 
 type CommandFlags struct {
@@ -43,12 +44,12 @@ func (cf *CommandFlags) Execute(todos *Todos) {
 	case cf.Edit != "":
 		parts := strings.SplitN(cf.Edit, " ", 2)
 		if len(parts) != 2 {
-			fmt.Println("Invalid edit command")
+			color.Red("Invalid edit format")
 			os.Exit(1)
 		}
 		index, err := strconv.Atoi(parts[0])
 		if err != nil {
-			fmt.Println("Invalid index")
+			color.Red("Invalid index")
 		}
 		todos.edit(index, parts[1])
 	case cf.Delete != -1:

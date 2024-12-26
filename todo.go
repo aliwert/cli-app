@@ -96,7 +96,13 @@ func (todos *Todos) print() {
 		if todo.CompletedAt != nil {
 			completedAt = todo.CompletedAt.Format(time.RFC3339)
 		}
-		table.AddRow(strconv.Itoa(index), todo.Title, completed, todo.CreatedAt.Format(time.RFC3339), completedAt)
+		table.AddRow(
+			color.RedString(strconv.Itoa(index)),
+			color.RedString(todo.Title),
+			color.RedString(completed),
+			color.RedString(todo.CreatedAt.Format(time.RFC3339)),
+			color.RedString(completedAt),
+		)
 	}
 	table.Render()
 }
