@@ -86,7 +86,13 @@ func (todos *Todos) edit(index int, title string) error {
 func (todos *Todos) print() {
 	table := table.New(os.Stdout)
 	table.SetRowLines(false)
-	table.SetHeaders("Index", "Title", "Completed", "Created At", "Completed At")
+	table.SetHeaders(
+		color.CyanString("Index"),
+		color.CyanString("Title"),
+		color.CyanString("Completed"),
+		color.CyanString("Created At"),
+		color.CyanString("Completed At"),
+	)
 	for index, todo := range *todos {
 		completed := "✖️"
 		if todo.Completed {
@@ -97,11 +103,11 @@ func (todos *Todos) print() {
 			completedAt = todo.CompletedAt.Format(time.RFC3339)
 		}
 		table.AddRow(
-			color.RedString(strconv.Itoa(index)),
-			color.RedString(todo.Title),
-			color.RedString(completed),
-			color.RedString(todo.CreatedAt.Format(time.RFC3339)),
-			color.RedString(completedAt),
+			color.CyanString(strconv.Itoa(index)),
+			color.CyanString(todo.Title),
+			color.CyanString(completed),
+			color.CyanString(todo.CreatedAt.Format(time.RFC3339)),
+			color.CyanString(completedAt),
 		)
 	}
 	table.Render()
